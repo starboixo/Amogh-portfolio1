@@ -60,7 +60,7 @@ const getTechIcon = (tag: string) => {
   return Settings; // Default icon
 };
 
-const ExperienceItem = ({ role, company, period, description, tags, index, link, image }: { role: string, company: string, period: string, description: string, tags: string[], index: number, link?: string, image?: string }) => (
+const ExperienceItem = ({ role, company, period, description, tags, index, link, image, downloadLink, downloadLabel }: { role: string, company: string, period: string, description: string, tags: string[], index: number, link?: string, image?: string, downloadLink?: string, downloadLabel?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ const ExperienceItem = ({ role, company, period, description, tags, index, link,
     </div>
     <p className="text-sm md:text-base text-gray-400 leading-relaxed max-w-3xl mb-6">{description}</p>
 
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 mb-4">
       {tags.map(tag => {
         const Icon = getTechIcon(tag);
         return (
@@ -108,6 +108,17 @@ const ExperienceItem = ({ role, company, period, description, tags, index, link,
         );
       })}
     </div>
+
+    {downloadLink && (
+      <a
+        href={downloadLink}
+        download
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold hover:bg-cyan-500/20 hover:text-white transition-all group/dl"
+      >
+        <Download className="w-3.5 h-3.5 group-hover/dl:-translate-y-0.5 transition-transform" />
+        {downloadLabel ?? "Download"}
+      </a>
+    )}
   </motion.div>
 );
 
@@ -284,6 +295,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
               image="/companies/univ_sa.png"
               description="Awarded Distinction. Focusing on Decision Analytics, Simulation Modeling, Risk Management, and Data Mining. Applying advanced analytical techniques to solve complex business problems."
               tags={["Decision Analytics", "Simulation Modeling", "Risk Management", "Data Mining"]}
+              downloadLink="/portfolio data/37508261_MANG6545_Dissertation.pdf"
+              downloadLabel="Download Dissertation (MANG6545)"
             />
           </div>
         </section>
