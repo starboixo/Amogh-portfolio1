@@ -38,12 +38,12 @@ export default function Hero() {
                     <span ref={el}></span>
                 </div>
 
-                {/* Supporting statement — business-first */}
+                {/* Supporting statement */}
                 <p className="text-base md:text-lg text-gray-400 mb-3 max-w-xl mx-auto leading-relaxed">
-                    Turning data into dashboards, reports and practical business decisions.
+                    Turning data into insights, dashboards and better business decisions.
                 </p>
                 <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto">
-                    3+ years at Ubisoft in QA &amp; release operations · Power BI · Tableau · SQL · Advanced Excel
+                    3+ years at Ubisoft · Power BI · Tableau · SQL · Advanced Excel
                 </p>
 
                 {/* CTAs */}

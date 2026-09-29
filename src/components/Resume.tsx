@@ -278,12 +278,12 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
           <div className="space-y-16">
             <ExperienceItem
               index={0}
-              role="QA Analyst & Release Operations"
+              role="Data Analyst"
               company="Ubisoft Entertainment SA"
               period="July '22 - July '25"
               image="/companies/ubisoft.png"
-              description="Worked within a global game studio across QA, release readiness and cross-functional performance reporting. Responsibilities spanned functional testing, regression testing, BVT, UAT, mobile (iOS/Android) and IAP validation — using JIRA and Confluence to track, document and escalate issues across product and engineering teams. Contributed to KPI reporting and dashboarding using Power BI and Tableau, supporting release decisions and performance monitoring across live titles. Reduced manual reporting effort by 50% through optimised data workflows and improved reporting templates."
-              tags={["Game QA", "Release Readiness", "Functional Testing", "Regression Testing", "UAT", "JIRA", "Confluence", "KPI Reporting", "Power BI", "Tableau", "Cross-Functional", "Mobile Testing"]}
+              description="Worked within a global gaming studio across a 3-year tenure, contributing to KPI analysis, performance dashboarding and data-driven reporting for live game titles. Built and maintained 10+ dashboards in Power BI and Tableau to track release performance and operational metrics. Reduced manual reporting effort by 50% through optimised data workflows. Collaborated closely with product, operations and engineering teams to surface insights, validate data quality and support business decisions across multiple international game releases."
+              tags={["Power BI", "Tableau", "SQL", "KPI Analysis", "Data Visualisation", "Performance Reporting", "Dashboarding", "Cross-Functional", "Data Quality"]}
             />
             <ExperienceItem
               index={1}

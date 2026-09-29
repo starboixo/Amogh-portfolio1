@@ -9,8 +9,6 @@ import {
   Activity,
   Search,
   Zap,
-  GitFork,
-  Layers,
   Network,
   Globe,
   FlaskConical,
@@ -18,19 +16,18 @@ import {
   MessageSquare,
   ClipboardList,
   PieChart,
-  CheckSquare,
 } from "lucide-react";
 
 const TechPill = ({
   icon: Icon,
   name,
   color,
-  small,
+  muted,
 }: {
   icon: any;
   name: string;
   color: string;
-  small?: boolean;
+  muted?: boolean;
 }) => {
   const colorMap: { [key: string]: { border: string; text: string } } = {
     cyan:   { border: "hover:border-cyan-500/40",   text: "group-hover:text-cyan-400" },
@@ -39,9 +36,9 @@ const TechPill = ({
     purple: { border: "hover:border-purple-500/40", text: "group-hover:text-purple-400" },
     orange: { border: "hover:border-orange-500/40", text: "group-hover:text-orange-400" },
     indigo: { border: "hover:border-indigo-500/40", text: "group-hover:text-indigo-400" },
-    sky:    { border: "hover:border-sky-500/40",    text: "group-hover:text-sky-400" },
-    slate:  { border: "hover:border-slate-500/40",  text: "group-hover:text-slate-400" },
     yellow: { border: "hover:border-yellow-500/40", text: "group-hover:text-yellow-400" },
+    slate:  { border: "hover:border-slate-500/40",  text: "group-hover:text-slate-400" },
+    sky:    { border: "hover:border-sky-500/40",    text: "group-hover:text-sky-400" },
   };
   const styles = colorMap[color] || colorMap.cyan;
 
@@ -49,10 +46,18 @@ const TechPill = ({
     <motion.div
       whileHover={{ y: -2 }}
       transition={{ duration: 0.15 }}
-      className={`flex items-center gap-2 ${small ? "px-3 py-1.5" : "px-4 py-2"} rounded-lg bg-white/[0.04] border border-white/8 ${styles.border} hover:bg-white/[0.06] transition-all duration-200 group cursor-default`}
+      className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-200 group cursor-default
+        ${muted
+          ? "bg-white/[0.02] border-white/5 hover:border-white/10"
+          : `bg-white/[0.04] border-white/8 ${styles.border} hover:bg-white/[0.06]`
+        }`}
     >
-      <Icon className={`${small ? "w-3.5 h-3.5" : "w-4 h-4"} text-gray-500 ${styles.text} transition-colors shrink-0`} />
-      <span className={`${small ? "text-xs" : "text-sm"} font-medium text-gray-400 group-hover:text-white transition-colors whitespace-nowrap`}>
+      <Icon className={`w-4 h-4 shrink-0 transition-colors
+        ${muted ? "text-gray-600" : `text-gray-500 ${styles.text}`}`}
+      />
+      <span className={`text-sm font-medium whitespace-nowrap transition-colors
+        ${muted ? "text-gray-600 group-hover:text-gray-500" : "text-gray-400 group-hover:text-white"}`}
+      >
         {name}
       </span>
     </motion.div>
@@ -95,52 +100,43 @@ export const TechStack = () => {
   return (
     <div className="max-w-5xl mx-auto space-y-10">
 
-      {/* PRIMARY: Business & Analytical Skills — most visible */}
-      <SkillSection title="Core Business & Analytical Skills" accent="Primary" index={0}>
-        <TechPill icon={Search}        name="Business Analysis"              color="cyan" />
-        <TechPill icon={BarChart2}     name="KPI & Performance Analysis"     color="blue" />
-        <TechPill icon={PieChart}      name="Data Visualisation"             color="cyan" />
-        <TechPill icon={ClipboardList} name="Reporting & Dashboarding"       color="green" />
-        <TechPill icon={Target}        name="Requirements Analysis"          color="blue" />
-        <TechPill icon={FlaskConical}  name="Risk Analysis"                  color="orange" />
-        <TechPill icon={Zap}           name="Process & Operations Analysis"  color="yellow" />
-        <TechPill icon={Users}         name="Stakeholder Management"         color="indigo" />
-        <TechPill icon={MessageSquare} name="Cross-functional Collaboration" color="sky" />
+      {/* 1. Core Skills — most prominent */}
+      <SkillSection title="Core Skills" accent="Primary" index={0}>
+        <TechPill icon={Search}        name="Data Analysis"                  color="cyan" />
+        <TechPill icon={Target}        name="Business Analysis"              color="blue" />
+        <TechPill icon={BarChart2}     name="KPI & Performance Analysis"     color="cyan" />
+        <TechPill icon={ClipboardList} name="Dashboarding & Reporting"       color="green" />
+        <TechPill icon={PieChart}      name="Data Visualisation"             color="blue" />
+        <TechPill icon={TrendingUp}    name="Business Intelligence"          color="indigo" />
+        <TechPill icon={Zap}           name="Business Insights"              color="yellow" />
         <TechPill icon={Activity}      name="Problem Solving"                color="purple" />
+        <TechPill icon={Users}         name="Stakeholder Collaboration"      color="sky" />
+        <TechPill icon={FlaskConical}  name="Process Analysis"               color="orange" />
       </SkillSection>
 
-      {/* SECONDARY: BI & Reporting Tools */}
-      <SkillSection title="BI & Reporting Tools" accent="Daily Use" index={1}>
-        <TechPill icon={BarChart2}       name="Power BI"          color="blue" />
-        <TechPill icon={TrendingUp}      name="Tableau"           color="orange" />
-        <TechPill icon={FileSpreadsheet} name="Advanced Excel"    color="green" />
-        <TechPill icon={Database}        name="SQL"               color="cyan" />
-        <TechPill icon={Globe}           name="Google Workspace"  color="blue" />
+      {/* 2. Tools */}
+      <SkillSection title="Tools & Platforms" accent="Daily Use" index={1}>
+        <TechPill icon={BarChart2}       name="Power BI"         color="blue" />
+        <TechPill icon={TrendingUp}      name="Tableau"          color="orange" />
+        <TechPill icon={FileSpreadsheet} name="Advanced Excel"   color="green" />
+        <TechPill icon={Database}        name="SQL"              color="cyan" />
+        <TechPill icon={Globe}           name="Google Workspace" color="blue" />
+        <TechPill icon={Network}         name="AnyLogic"         color="purple" />
       </SkillSection>
 
-      {/* QA & Project Tools — reflects Ubisoft background */}
-      <SkillSection title="QA & Project Management Tools" index={2}>
-        <TechPill icon={CheckSquare} name="JIRA"              color="blue" />
-        <TechPill icon={Layers}      name="Confluence"        color="indigo" />
-        <TechPill icon={CheckSquare} name="Functional Testing" color="slate" />
-        <TechPill icon={CheckSquare} name="UAT / BVT"         color="slate" />
-        <TechPill icon={GitFork}     name="Git / GitHub"      color="slate" />
+      {/* 3. Supporting — visually muted */}
+      <SkillSection title="Supporting Knowledge" index={2}>
+        <TechPill icon={Database}  name="Python — Basic"      color="slate" muted />
+        <TechPill icon={Activity}  name="Statistical Analysis" color="slate" muted />
+        <TechPill icon={TrendingUp} name="Predictive Modelling" color="slate" muted />
+        <TechPill icon={Activity}  name="Simulation Modelling"  color="slate" muted />
       </SkillSection>
 
-      {/* Supporting Technical — deprioritised, smaller pills */}
-      <SkillSection title="Supporting Technical Knowledge" index={3}>
-        <TechPill icon={Database}  name="Python (supporting)"  color="slate" small />
-        <TechPill icon={Network}   name="AnyLogic"             color="purple" small />
-        <TechPill icon={Activity}  name="Statistical Analysis"  color="slate" small />
-        <TechPill icon={TrendingUp} name="Predictive Modelling" color="slate" small />
-        <TechPill icon={Activity}  name="Simulation Modelling"  color="slate" small />
-      </SkillSection>
-
-      {/* Languages */}
-      <SkillSection title="Languages" index={4}>
-        <TechPill icon={(p: any) => <TextIcon char="A" {...p} />} name="English (Fluent)" color="blue" small />
-        <TechPill icon={(p: any) => <TextIcon char="अ" {...p} />} name="Hindi"            color="orange" small />
-        <TechPill icon={(p: any) => <TextIcon char="M" {...p} />} name="Marathi"          color="slate" small />
+      {/* 4. Languages */}
+      <SkillSection title="Languages" index={3}>
+        <TechPill icon={(p: any) => <TextIcon char="A" {...p} />} name="English (Fluent)" color="blue" />
+        <TechPill icon={(p: any) => <TextIcon char="अ" {...p} />} name="Hindi"            color="orange" />
+        <TechPill icon={(p: any) => <TextIcon char="M" {...p} />} name="Marathi"          color="slate" />
       </SkillSection>
 
     </div>

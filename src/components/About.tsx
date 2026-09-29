@@ -4,10 +4,10 @@ import { BarChart2, Target, Users, TrendingUp } from 'lucide-react';
 
 export default function About() {
     const highlights = [
-        { icon: BarChart2, title: "Dashboards & Reporting", desc: "Power BI, Tableau, Advanced Excel and SQL — turning data into clear KPI dashboards and business reports that support decision-making." },
-        { icon: Target, title: "Business & Operations Analysis", desc: "Business problem framing, process analysis, requirements gathering and structured recommendations — applied across gaming, consulting and research." },
-        { icon: Users, title: "Technical Environment Experience", desc: "3+ years embedded within product and engineering teams at Ubisoft — working across QA, release operations and performance tracking in a global gaming studio." },
-        { icon: TrendingUp, title: "Measurable Business Impact", desc: "Reduced reporting workload by 50%, built 10+ KPI dashboards, and improved reporting accuracy across live game titles and operational workflows." }
+        { icon: BarChart2, title: "Data Analysis & Reporting", desc: "Power BI, Tableau, SQL and Excel — transforming raw data into clear KPI dashboards and business reports that drive better decisions." },
+        { icon: Target, title: "Business Analysis", desc: "Translating business questions into data problems — requirement gathering, process analysis and structured recommendations across gaming, consulting and research." },
+        { icon: Users, title: "Cross-functional Collaboration", desc: "3+ years working within product and engineering teams at Ubisoft, supporting data needs across international game titles and operational functions." },
+        { icon: TrendingUp, title: "Measurable Impact", desc: "Reduced reporting workload by 50%, delivered 10+ KPI dashboards, and improved data accuracy and decision support across live business operations." }
     ];
 
     return (
@@ -49,7 +49,7 @@ export default function About() {
                                 transition={{ duration: 0.6 }}
                                 className="space-y-6"
                             >
-                                <div className="badge-analytics">Business Analyst · Reporting &amp; BI · MSc Business Analytics (Distinction)</div>
+                                <div className="badge-analytics">Data Analyst · Business Analyst · MSc Business Analytics (Distinction)</div>
 
                                 <h4 className="text-3xl md:text-4xl font-bold text-white leading-tight">
                                     {portfolioData.aboutHeading}
