@@ -1,26 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
-import { Linkedin, ExternalLink, Instagram } from 'lucide-react';
-import { FaProjectDiagram } from 'react-icons/fa';
+import { Linkedin, Download, ArrowDown } from 'lucide-react';
 import ThreeCanvas from './ThreeCanvas';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Hero() {
     const el = useRef(null);
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     useEffect(() => {
         const typed = new Typed(el.current, {
             strings: portfolioData.roles,
-            typeSpeed: 50,
+            typeSpeed: 55,
             backSpeed: 30,
             loop: true,
-            backDelay: 1500,
+            backDelay: 1800,
         });
-
-        return () => {
-            typed.destroy();
-        };
+        return () => { typed.destroy(); };
     }, []);
 
     return (
@@ -28,62 +23,71 @@ export default function Hero() {
             <ThreeCanvas />
 
             <div className="z-10 text-center px-4 max-w-4xl mx-auto">
-                <h1 className="text-2xl md:text-4xl font-accent mb-2 text-gray-400">Hi there,</h1>
-                <h1 className="text-4xl md:text-6xl font-accent font-extrabold mb-6 tracking-tight text-white">
-                    I'm <span className="text-neon transition-all">Amogh Lonare</span>
+                {/* Professional badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 rounded-md border border-white/10 bg-white/5 text-gray-400 text-xs font-semibold uppercase tracking-widest">
+                    MSc Business Analytics · University of Southampton
+                </div>
+
+                {/* Name */}
+                <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-white">
+                    Amogh <span className="text-neon">Lonare</span>
                 </h1>
 
-                <div className="h-12 md:h-24 mb-6 md:mb-8 text-xl md:text-5xl font-accent font-extrabold text-[#00f2ff] drop-shadow-[0_0_10px_rgba(0,242,255,0.3)] tracking-tight flex items-center justify-center">
+                {/* Typed role */}
+                <div className="h-10 md:h-14 mb-6 text-xl md:text-3xl font-semibold text-[#00f2ff] tracking-tight flex items-center justify-center">
                     <span ref={el}></span>
                 </div>
 
-                <p className="text-sm md:text-lg text-gray-400 mb-8 md:mb-6 max-w-2xl mx-auto leading-relaxed px-4">
-                    Leveraging data analytics, simulation modeling, and business intelligence<br className="hidden md:block" /> to drive strategic growth and operational excellence in the gaming and tech industries.
+                {/* Supporting statement */}
+                <p className="text-base md:text-lg text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
+                    Turning data into insights, dashboards and practical business decisions.
+                    <br className="hidden md:block" />
+                    <span className="text-gray-500 text-sm">3+ years at Ubisoft · Power BI · SQL · Tableau · Python</span>
                 </p>
 
-                <div className="flex justify-center mb-10 md:mb-6 gap-4 md:gap-5">
-                    {[
-                        { icon: Instagram, href: portfolioData.socials.instagram },
-                        { icon: Linkedin, href: portfolioData.socials.linkedin },
-                    ].map((social, index) => (
-                        <a
-                            key={index}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                            className="flex items-center justify-center glass rounded-full transition-all duration-300 active:scale-95 w-11 h-11 md:w-[54px] md:h-[54px]"
-                            style={{
-                                textDecoration: 'none',
-                                color: hoveredIndex === index ? '#00f2ff' : '#a0a0b0',
-                                border: hoveredIndex === index ? '1px solid #00f2ff' : '1px solid rgba(255, 255, 255, 0.1)',
-                                backgroundColor: hoveredIndex === index ? 'rgba(0, 242, 255, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                                transform: hoveredIndex === index ? 'translateY(-8px) scale(1.25)' : 'translateY(0) scale(1)',
-                                boxShadow: hoveredIndex === index ? '0 0 25px rgba(0, 242, 255, 0.5)' : 'none',
-                                zIndex: hoveredIndex === index ? 20 : 1
-                            }}
-                        >
-                            <social.icon className="w-5 h-5 md:w-6 md:h-6" />
-                        </a>
-                    ))}
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
                     <a
                         href="#projects"
-                        className="px-10 py-4 border border-[#00f2ff] text-[#00f2ff] font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-[#00f2ff]/10 transition-all hover:-translate-y-1 cursor-pointer w-full md:w-auto"
+                        className="px-8 py-3.5 bg-[#00f2ff] text-[#050505] font-bold rounded-lg flex items-center gap-2 hover:bg-cyan-300 transition-all hover:-translate-y-0.5 w-full sm:w-auto justify-center text-sm"
                     >
-                        View Projects <FaProjectDiagram className="h-5 w-5" />
+                        View My Work
                     </a>
                     <a
                         href={portfolioData.socials.resume}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-10 py-4 bg-[#00f2ff] text-[#050505] font-bold rounded-xl flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(0,242,255,0.7)] transition-all hover:-translate-y-1 cursor-pointer w-full md:w-auto"
+                        className="px-8 py-3.5 border border-white/20 text-white font-semibold rounded-lg flex items-center gap-2 hover:border-white/40 hover:bg-white/5 transition-all hover:-translate-y-0.5 w-full sm:w-auto justify-center text-sm"
                     >
-                        View Resume <ExternalLink className="h-5 w-5" />
+                        <Download className="w-4 h-4" /> Download CV
                     </a>
+                    <a
+                        href={portfolioData.socials.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-8 py-3.5 border border-white/10 text-gray-400 font-semibold rounded-lg flex items-center gap-2 hover:border-blue-400/40 hover:text-blue-400 transition-all hover:-translate-y-0.5 w-full sm:w-auto justify-center text-sm"
+                    >
+                        <Linkedin className="w-4 h-4" /> LinkedIn
+                    </a>
+                </div>
+
+                {/* Quick stats */}
+                <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto mb-10">
+                    {[
+                        { value: "3+", label: "Years Experience" },
+                        { value: "10+", label: "KPI Dashboards" },
+                        { value: "50%", label: "Reporting Efficiency" },
+                    ].map((stat, i) => (
+                        <div key={i} className="text-center">
+                            <div className="text-2xl font-bold text-white">{stat.value}</div>
+                            <div className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Scroll indicator */}
+                <div className="flex flex-col items-center gap-1 text-gray-600 animate-bounce">
+                    <ArrowDown className="w-4 h-4" />
                 </div>
             </div>
         </section>

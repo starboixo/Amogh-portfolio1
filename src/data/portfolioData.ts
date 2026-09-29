@@ -1,10 +1,12 @@
 export const portfolioData = {
   name: "Amogh Lonare",
-  title: "Data Analyst | Game Developer | Business Analyst",
+  title: "Business Analyst · Data Analyst · Business Analytics",
   roles: [
+    "Business Analyst",
     "Data Analyst",
-    "Game Developer",
-    "Business Analyst"
+    "Business Intelligence Analyst",
+    "Operations Analyst",
+    "Strategy & Analytics"
   ],
   socials: {
     instagram: "https://www.instagram.com/amoghlonare",
@@ -12,7 +14,7 @@ export const portfolioData = {
     resume: "/Amogh_Lonare_Resume.pdf"
   },
   profilePicture: "/amogh_lonare.png",
-  aboutHeading: "Driving Business Value Through Data, Analytics, and Innovation.",
-  about: "MSc Business Analytics candidate with 3+ years of experience in the gaming industry (Ubisoft) supporting release readiness and data-driven decision making. Passionate about applying machine learning, simulation modeling, and predictive analytics to optimize business processes and enhance product strategy.",
-  aboutQuote: "Transforming complex data into actionable insights to drive strategic growth and operational excellence."
+  aboutHeading: "Turning data into insights, dashboards and practical business decisions.",
+  about: "MSc Business Analytics (Distinction) graduate from the University of Southampton, with 3+ years of professional experience at Ubisoft supporting release readiness, KPI analysis and data-driven decision-making. I translate complex datasets into clear business insights using Power BI, Tableau, SQL and Python.",
+  aboutQuote: "I don't just analyse data — I help teams make better decisions with it."
 };

@@ -1,6 +1,6 @@
 import { TechStack } from "./TechStack";
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail, MapPin, Download, Brain, Database, Mic, Settings, Layers, Server, Satellite, BarChart, Box, ExternalLink, FileText, Globe, BookOpen, Send, User, MessageSquare, ArrowUpRight, Search, Accessibility, ShieldCheck, Zap, Activity, LayoutTemplate, PenTool, Palette, Sparkles, Image, Users, Instagram, Cpu, Lightbulb, ShoppingBag } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Download, Brain, Database, Mic, Settings, Layers, Server, Satellite, BarChart, Box, ExternalLink, FileText, Globe, BookOpen, Send, User, MessageSquare, ArrowUpRight, Search, Accessibility, ShieldCheck, Zap, Activity, LayoutTemplate, PenTool, Palette, Sparkles, Image, Users, Instagram, Cpu, Lightbulb, ShoppingBag, TrendingUp, Target } from "lucide-react";
 import { SiLangchain, SiFlutter, SiFastapi, SiOpenai, SiMixpanel, SiApachekafka } from "react-icons/si";
 import { FaCogs, FaProjectDiagram, FaAws, FaMedium, FaBehance } from "react-icons/fa";
 import About from "./About";
@@ -56,6 +56,16 @@ const getTechIcon = (tag: string) => {
   if (normalizedTag.includes("statistical") || normalizedTag.includes("sysbench")) return BarChart;
   if (normalizedTag.includes("research")) return Search;
   if (normalizedTag.includes("conversational")) return MessageSquare;
+  if (normalizedTag.includes("kpi") || normalizedTag.includes("kpi analysis")) return BarChart;
+  if (normalizedTag.includes("power bi")) return BarChart;
+  if (normalizedTag.includes("tableau")) return BarChart;
+  if (normalizedTag.includes("demand forecasting") || normalizedTag.includes("forecasting")) return TrendingUp;
+  if (normalizedTag.includes("supply chain")) return Layers;
+  if (normalizedTag.includes("business strategy") || normalizedTag.includes("business analysis")) return Target;
+  if (normalizedTag.includes("p&l") || normalizedTag.includes("p&l optimisation")) return TrendingUp;
+  if (normalizedTag.includes("cross-functional") || normalizedTag.includes("release readiness")) return Users;
+  if (normalizedTag.includes("data pipelines") || normalizedTag.includes("data architecture")) return Database;
+  if (normalizedTag.includes("requirements analysis") || normalizedTag.includes("systems design")) return Settings;
 
   return Settings; // Default icon
 };
@@ -255,7 +265,7 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
         <section id="experience" className="scroll-mt-24">
           <div className="flex items-center gap-4 mb-20">
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
-              <Database className="w-6 h-6 text-cyan-400" />
+              <BarChart className="w-6 h-6 text-cyan-400" />
             </div>
             <h3 className="text-3xl font-bold text-white">Professional Experience</h3>
             <div className="h-px flex-1 bg-gradient-to-r from-cyan-500/50 to-transparent" />
@@ -268,8 +278,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
               company="Ubisoft Entertainment SA"
               period="July '22 - July '25"
               image="/companies/ubisoft.png"
-              description="Designed 10+ KPI dashboards using Tableau and Power BI, improving reporting efficiency by 35%. Reduced manual reporting workload by 50% through optimized SQL queries and automated data pipelines. Performed statistical analysis on large datasets to identify anomalies and performance patterns, supporting behavioral analysis and high-level decision support."
-              tags={["SQL", "Tableau", "Power BI", "KPI Tracking", "Statistical Analysis"]}
+              description="Led KPI dashboard design across 10+ projects using Power BI and Tableau, improving reporting efficiency by 35% for cross-functional release teams. Partnered with product, QA and engineering to define data requirements, validate release readiness criteria and surface performance anomalies. Reduced manual reporting workload by 50% through optimised SQL queries and automated data pipelines. Delivered statistical analysis and behavioural insights that directly informed product and business decisions across live game titles."
+              tags={["Power BI", "Tableau", "SQL", "KPI Analysis", "Release Readiness", "Data Pipelines", "Statistical Analysis", "Cross-Functional"]}
             />
             <ExperienceItem
               index={1}
@@ -317,8 +327,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <ProjectItem
               index={0}
               title="Northrop Grumman Challenge"
-              description="Designed 'The Brain', a multi-agent LLM module for secure backend reasoning, focusing on data privacy and efficient decision-making paths."
-              tags={["AI", "Python", "Predictive Modelling"]}
+              description="Designed 'The Brain' — a multi-agent reasoning architecture for a defence-sector AI challenge. Focused on secure data flows, decision auditability and explainable AI outputs aligned to operational requirements."
+              tags={["AI", "Python", "Decision Analytics", "Systems Design"]}
               link="#"
               titleColor="#00f2ff"
               image="/projects/ai_brain.png"
@@ -327,8 +337,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <ProjectItem
               index={1}
               title="MedTech Innovation Programme"
-              description="Designed the operational logic and data architecture for an accessible smart medication dispenser to support elderly users."
-              tags={["Data Architecture", "IoT", "Logic Design"]}
+              description="Designed the data architecture and operational logic for an accessible smart medication dispenser. Produced user requirement analysis, system flow documentation and a business case for IoT-enabled elderly care."
+              tags={["Data Architecture", "Business Analysis", "IoT", "Requirements Analysis"]}
               link="#"
               image="/projects/medtech.png"
               onOpenProject={() => onOpenProject?.('medtech')}
@@ -336,8 +346,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <ProjectItem
               index={2}
               title="BOSS Global Business Competition"
-              description="Managed end-to-end operations of a simulated holiday enterprise, optimizing supply chains and forecasting demand through predictive modeling."
-              tags={["Supply Chain Optimization", "Forecasting", "Business Strategy"]}
+              description="Operated a simulated holiday enterprise end-to-end — managing supply chain decisions, demand forecasting, pricing strategy and P&L optimisation. Applied predictive modelling to maximise revenue and minimise operational costs."
+              tags={["Demand Forecasting", "Supply Chain", "Business Strategy", "P&L Optimisation"]}
               link="#"
               image="/projects/business_sim.png"
               onOpenProject={() => onOpenProject?.('boss')}
@@ -345,15 +355,15 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <ProjectItem
               index={3}
               title="IoT-Based Dual-Axis Solar Tracker"
-              description="Designed an automated Arduino-based tracking system using data from light sensors to maximize solar energy absorption efficiency."
-              tags={["IoT", "Arduino", "Automation"]}
+              description="Built an automated Arduino-based dual-axis solar tracking system. Captured and analysed sensor data to validate efficiency gains vs. fixed-panel baselines — demonstrating a measurable improvement in energy yield."
+              tags={["IoT", "Arduino", "Data Analysis", "Automation"]}
               link="#"
               image="/projects/solar_tracker.png"
             />
             <ProjectItem
               index={4}
               title="GRI & UX Portfolio"
-              description="Showcasing my UX design portfolio through a GRI-aligned lens — bridging human-centred design, accessibility, and transparent impact reporting."
+              description="Applied human-centred design methodology and GRI sustainability reporting principles to produce a structured UX portfolio — aligning design outcomes with measurable, transparent impact metrics."
               tags={["User Research", "Wireframing", "Accessibility", "Foundational Design"]}
               link="#"
               titleColor="#c084fc"
@@ -369,7 +379,7 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20">
               <ShoppingBag className="w-6 h-6 text-orange-400" />
             </div>
-            <h3 className="text-3xl font-bold text-white">Retail & Hospitality Experience</h3>
+            <h3 className="text-3xl font-bold text-white">Additional Work History</h3>
             <div className="h-px flex-1 bg-gradient-to-r from-orange-500/50 to-transparent" />
           </div>
 
