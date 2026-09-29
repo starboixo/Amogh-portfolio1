@@ -1,12 +1,12 @@
 export const portfolioData = {
   name: "Amogh Lonare",
-  title: "Business Analyst · Data Analyst · Business Analytics",
+  title: "Business Analyst · Reporting & BI · Operations Analytics",
   roles: [
     "Business Analyst",
-    "Data Analyst",
-    "Business Intelligence Analyst",
+    "Reporting Analyst",
+    "BI Analyst",
     "Operations Analyst",
-    "Strategy & Analytics"
+    "Performance Analyst"
   ],
   socials: {
     instagram: "https://www.instagram.com/amoghlonare",
@@ -14,7 +14,7 @@ export const portfolioData = {
     resume: "/Amogh_Lonare_Resume.pdf"
   },
   profilePicture: "/amogh_lonare.png",
-  aboutHeading: "Turning data into insights, dashboards and practical business decisions.",
-  about: "MSc Business Analytics (Distinction) graduate from the University of Southampton, with 3+ years of professional experience at Ubisoft supporting release readiness, KPI analysis and data-driven decision-making. I translate complex datasets into clear business insights using Power BI, Tableau, SQL and Python.",
-  aboutQuote: "I don't just analyse data — I help teams make better decisions with it."
+  aboutHeading: "Turning data into dashboards, reports and practical business decisions.",
+  about: "MSc Business Analytics (Distinction) graduate from the University of Southampton, with 3+ years of professional experience at Ubisoft in game QA, release operations and cross-functional performance reporting. I bridge business understanding with analytical tools — producing dashboards, KPI reports and insights that help teams make better decisions.",
+  aboutQuote: "I bridge business understanding and analytical tools to help teams make better decisions."
 };

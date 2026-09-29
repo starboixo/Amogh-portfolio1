@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import { Linkedin, Download, ArrowDown } from 'lucide-react';
 import ThreeCanvas from './ThreeCanvas';
@@ -23,9 +23,9 @@ export default function Hero() {
             <ThreeCanvas />
 
             <div className="z-10 text-center px-4 max-w-4xl mx-auto">
-                {/* Professional badge */}
+                {/* Credential badge */}
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 rounded-md border border-white/10 bg-white/5 text-gray-400 text-xs font-semibold uppercase tracking-widest">
-                    MSc Business Analytics · University of Southampton
+                    MSc Business Analytics (Distinction) · University of Southampton
                 </div>
 
                 {/* Name */}
@@ -38,17 +38,18 @@ export default function Hero() {
                     <span ref={el}></span>
                 </div>
 
-                {/* Supporting statement */}
-                <p className="text-base md:text-lg text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
-                    Turning data into insights, dashboards and practical business decisions.
-                    <br className="hidden md:block" />
-                    <span className="text-gray-500 text-sm">3+ years at Ubisoft · Power BI · SQL · Tableau · Python</span>
+                {/* Supporting statement — business-first */}
+                <p className="text-base md:text-lg text-gray-400 mb-3 max-w-xl mx-auto leading-relaxed">
+                    Turning data into dashboards, reports and practical business decisions.
+                </p>
+                <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto">
+                    3+ years at Ubisoft in QA &amp; release operations · Power BI · Tableau · SQL · Advanced Excel
                 </p>
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
                     <a
-                        href="#projects"
+                        href="#experience"
                         className="px-8 py-3.5 bg-[#00f2ff] text-[#050505] font-bold rounded-lg flex items-center gap-2 hover:bg-cyan-300 transition-all hover:-translate-y-0.5 w-full sm:w-auto justify-center text-sm"
                     >
                         View My Work
@@ -71,12 +72,12 @@ export default function Hero() {
                     </a>
                 </div>
 
-                {/* Quick stats */}
+                {/* Quick stats — business framing */}
                 <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto mb-10">
                     {[
-                        { value: "3+", label: "Years Experience" },
-                        { value: "10+", label: "KPI Dashboards" },
-                        { value: "50%", label: "Reporting Efficiency" },
+                        { value: "3+", label: "Years at Ubisoft" },
+                        { value: "10+", label: "KPI Dashboards Built" },
+                        { value: "50%", label: "Reporting Time Saved" },
                     ].map((stat, i) => (
                         <div key={i} className="text-center">
                             <div className="text-2xl font-bold text-white">{stat.value}</div>

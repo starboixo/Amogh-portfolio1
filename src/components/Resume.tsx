@@ -56,16 +56,20 @@ const getTechIcon = (tag: string) => {
   if (normalizedTag.includes("statistical") || normalizedTag.includes("sysbench")) return BarChart;
   if (normalizedTag.includes("research")) return Search;
   if (normalizedTag.includes("conversational")) return MessageSquare;
-  if (normalizedTag.includes("kpi") || normalizedTag.includes("kpi analysis")) return BarChart;
+  if (normalizedTag.includes("kpi") || normalizedTag.includes("kpi analysis") || normalizedTag.includes("kpi reporting")) return BarChart;
   if (normalizedTag.includes("power bi")) return BarChart;
   if (normalizedTag.includes("tableau")) return BarChart;
+  if (normalizedTag.includes("dashboarding")) return BarChart;
   if (normalizedTag.includes("demand forecasting") || normalizedTag.includes("forecasting")) return TrendingUp;
   if (normalizedTag.includes("supply chain")) return Layers;
-  if (normalizedTag.includes("business strategy") || normalizedTag.includes("business analysis")) return Target;
+  if (normalizedTag.includes("business strategy") || normalizedTag.includes("business analysis") || normalizedTag.includes("business intelligence")) return Target;
   if (normalizedTag.includes("p&l") || normalizedTag.includes("p&l optimisation")) return TrendingUp;
   if (normalizedTag.includes("cross-functional") || normalizedTag.includes("release readiness")) return Users;
   if (normalizedTag.includes("data pipelines") || normalizedTag.includes("data architecture")) return Database;
   if (normalizedTag.includes("requirements analysis") || normalizedTag.includes("systems design")) return Settings;
+  if (normalizedTag.includes("game qa") || normalizedTag.includes("functional testing") || normalizedTag.includes("regression testing") || normalizedTag.includes("uat") || normalizedTag.includes("bvt")) return ShieldCheck;
+  if (normalizedTag.includes("mobile testing") || normalizedTag.includes("ios") || normalizedTag.includes("android") || normalizedTag.includes("iap")) return Zap;
+  if (normalizedTag.includes("confluence") || normalizedTag.includes("jira")) return Layers;
 
   return Settings; // Default icon
 };
@@ -274,20 +278,20 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
           <div className="space-y-16">
             <ExperienceItem
               index={0}
-              role="Data Analyst (Gaming)"
+              role="QA Analyst & Release Operations"
               company="Ubisoft Entertainment SA"
               period="July '22 - July '25"
               image="/companies/ubisoft.png"
-              description="Led KPI dashboard design across 10+ projects using Power BI and Tableau, improving reporting efficiency by 35% for cross-functional release teams. Partnered with product, QA and engineering to define data requirements, validate release readiness criteria and surface performance anomalies. Reduced manual reporting workload by 50% through optimised SQL queries and automated data pipelines. Delivered statistical analysis and behavioural insights that directly informed product and business decisions across live game titles."
-              tags={["Power BI", "Tableau", "SQL", "KPI Analysis", "Release Readiness", "Data Pipelines", "Statistical Analysis", "Cross-Functional"]}
+              description="Worked within a global game studio across QA, release readiness and cross-functional performance reporting. Responsibilities spanned functional testing, regression testing, BVT, UAT, mobile (iOS/Android) and IAP validation — using JIRA and Confluence to track, document and escalate issues across product and engineering teams. Contributed to KPI reporting and dashboarding using Power BI and Tableau, supporting release decisions and performance monitoring across live titles. Reduced manual reporting effort by 50% through optimised data workflows and improved reporting templates."
+              tags={["Game QA", "Release Readiness", "Functional Testing", "Regression Testing", "UAT", "JIRA", "Confluence", "KPI Reporting", "Power BI", "Tableau", "Cross-Functional", "Mobile Testing"]}
             />
             <ExperienceItem
               index={1}
               role="Data Analyst Intern"
               company="Kuber Enterprise"
               period="Feb '18 - Feb '19"
-              description="Collected and cleaned complex data using Python and Excel, improving reporting accuracy by 20%. Implemented and managed executive dashboards tracking 8+ KPIs to facilitate strategic business decisions."
-              tags={["Python", "Excel", "Data Cleaning", "Business Intelligence"]}
+              description="Supported business reporting and data management — collecting, cleaning and organising data to improve reporting accuracy by 20%. Built and maintained executive dashboards tracking 8+ KPIs to support strategic business decisions, using Excel and business intelligence tools."
+              tags={["KPI Reporting", "Excel", "Data Cleaning", "Business Intelligence", "Dashboarding"]}
             />
             <ExperienceItem
               index={2}
@@ -421,7 +425,7 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20">
               <Cpu className="w-6 h-6 text-cyan-400" />
             </div>
-            <h3 className="text-3xl font-bold text-white">Technical Skills</h3>
+            <h3 className="text-3xl font-bold text-white">Skills &amp; Tools</h3>
             <div className="h-px flex-1 bg-gradient-to-r from-cyan-500/50 to-transparent" />
           </div>
           <TechStack />
