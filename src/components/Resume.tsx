@@ -286,6 +286,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
               period="2026"
               description="Delivered strategic consulting engagements for clients across multiple sectors, conducting market analysis, financial modelling, and presenting data-driven recommendations to senior stakeholders. Collaborated in a cross-functional team to develop go-to-market strategies and operational improvement plans."
               tags={["Strategic Consulting", "Market Analysis", "Financial Modelling", "Business Strategy"]}
+              downloadLink="/portfolio data/Amogh_LOR_Blackmont.pdf"
+              downloadLabel="Download Letter of Recommendation"
             />
             <ExperienceItem
               index={3}
