@@ -4,6 +4,7 @@ import { Github, Linkedin, Mail, MapPin, Download, Brain, Database, Mic, Setting
 import { SiLangchain, SiFlutter, SiFastapi, SiOpenai, SiMixpanel, SiApachekafka } from "react-icons/si";
 import { FaCogs, FaProjectDiagram, FaAws, FaMedium, FaBehance } from "react-icons/fa";
 import About from "./About";
+import WhatIDo from "./WhatIDo";
 
 const SocialButton = ({ icon: Icon, href, label }: { icon: any, href: string, label: string }) => (
   <a
@@ -279,6 +280,9 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
         {/* About Section */}
         <About />
 
+        {/* What I Do Section */}
+        <WhatIDo />
+
         {/* Experience Section */}
         <section id="experience" className="scroll-mt-24">
           <div className="flex items-center gap-4 mb-20">
@@ -292,12 +296,12 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
           <div className="space-y-16">
             <ExperienceItem
               index={0}
-              role="Data Analyst"
+              role="Quality Assurance Analyst"
               company="Ubisoft Entertainment SA"
               period="July '22 - July '25"
               image="/companies/ubisoft.png"
-              description="Worked within a global gaming studio across a 3-year tenure, contributing to KPI analysis, performance dashboarding and data-driven reporting for live game titles. Built and maintained 10+ dashboards in Power BI and Tableau to track release performance and operational metrics. Reduced manual reporting effort by 50% through optimised data workflows. Collaborated closely with product, operations and engineering teams to surface insights, validate data quality and support business decisions across multiple international game releases."
-              tags={["Power BI", "Tableau", "SQL", "KPI Analysis", "Data Visualisation", "Performance Reporting", "Dashboarding", "Cross-Functional", "Data Quality"]}
+              description="3+ years embedded within a global gaming studio, working across quality assurance and product operations on live game titles. Contributed to KPI tracking, performance reporting and dashboard development using Power BI and Tableau. Identified data trends and anomalies to inform release decisions, collaborated closely with product and engineering teams, and supported data-informed operations across multiple international releases."
+              tags={["Power BI", "Tableau", "KPI Analysis", "Performance Reporting", "Data Visualisation", "Dashboarding", "Cross-Functional", "Product Operations"]}
             />
             <ExperienceItem
               index={1}
@@ -455,7 +459,7 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
             <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
               <Mail className="w-6 h-6 text-blue-400" />
             </div>
-            <h3 className="text-3xl font-bold text-white">Let's Build Together</h3>
+            <h3 className="text-3xl font-bold text-white">Get in Touch</h3>
             <div className="h-px flex-1 bg-gradient-to-r from-blue-500/50 to-transparent" />
           </div>
 

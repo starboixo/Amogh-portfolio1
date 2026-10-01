@@ -23,12 +23,13 @@ export default function Hero() {
             <ThreeCanvas />
 
             <div className="z-10 text-center px-4 max-w-4xl mx-auto">
+
                 {/* Credential badge */}
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 rounded-md border border-white/10 bg-white/5 text-gray-400 text-xs font-semibold uppercase tracking-widest">
                     MSc Business Analytics (Distinction) · University of Southampton
                 </div>
 
-                {/* Name */}
+                {/* Full name — never truncate to just "Amogh" */}
                 <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-white">
                     Amogh <span className="text-neon">Lonare</span>
                 </h1>
@@ -38,12 +39,14 @@ export default function Hero() {
                     <span ref={el}></span>
                 </div>
 
-                {/* Supporting statement */}
+                {/* Primary tagline */}
                 <p className="text-base md:text-lg text-gray-400 mb-3 max-w-xl mx-auto leading-relaxed">
                     Turning data into insights, dashboards and better business decisions.
                 </p>
+
+                {/* Tool strip — analytics tools prominent, no Python */}
                 <p className="text-sm text-gray-500 mb-10 max-w-md mx-auto">
-                    3+ years at Ubisoft · Power BI · Tableau · SQL · Advanced Excel
+                    Power BI · Tableau · SQL · Advanced Excel · 3+ years of professional experience
                 </p>
 
                 {/* CTAs */}
@@ -72,16 +75,16 @@ export default function Hero() {
                     </a>
                 </div>
 
-                {/* Quick stats — business framing */}
-                <div className="grid grid-cols-3 gap-4 max-w-sm mx-auto mb-10">
+                {/* Metrics — only factual, defensible numbers */}
+                <div className="grid grid-cols-3 gap-6 max-w-sm mx-auto mb-10">
                     {[
-                        { value: "3+", label: "Years at Ubisoft" },
-                        { value: "10+", label: "KPI Dashboards Built" },
-                        { value: "50%", label: "Reporting Time Saved" },
+                        { value: "3+",  label: "Years Professional Experience" },
+                        { value: "10+", label: "KPI Dashboards" },
+                        { value: "4+",  label: "Analytics Projects" },
                     ].map((stat, i) => (
                         <div key={i} className="text-center">
                             <div className="text-2xl font-bold text-white">{stat.value}</div>
-                            <div className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
+                            <div className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5 leading-tight">{stat.label}</div>
                         </div>
                     ))}
                 </div>
