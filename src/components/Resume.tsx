@@ -379,6 +379,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
               tags={["IoT", "Arduino", "Data Analysis", "Automation"]}
               link="#"
               image="/projects/solar_tracker.png"
+              downloadLink="/portfolio data/IoT_Solar_Tracker.pptx"
+              downloadLabel="Download Presentation"
             />
             <ProjectItem
               index={4}
