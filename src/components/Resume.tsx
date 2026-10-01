@@ -136,45 +136,59 @@ const ExperienceItem = ({ role, company, period, description, tags, index, link,
   </motion.div>
 );
 
-const ProjectItem = ({ title, description, link, tags, index, titleColor, image, onOpenProject }: { title: string, description: string, link: string, tags: string[], index: number, titleColor?: string, image?: string, onOpenProject?: () => void }) => (
-  <motion.button
-    onClick={(e) => {
-      e.preventDefault();
-      if (onOpenProject) {
-        onOpenProject();
-      }
-    }}
+const ProjectItem = ({ title, description, link, tags, index, titleColor, image, onOpenProject, downloadLink, downloadLabel }: { title: string, description: string, link: string, tags: string[], index: number, titleColor?: string, image?: string, onOpenProject?: () => void, downloadLink?: string, downloadLabel?: string }) => (
+  <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="group relative rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/30 hover:bg-white/[0.07] transition-all duration-300 flex flex-col h-full overflow-hidden text-left w-full cursor-pointer"
+    className="group relative rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/30 hover:bg-white/[0.07] transition-all duration-300 flex flex-col h-full overflow-hidden text-left w-full"
   >
     {image && (
-      <div className="relative h-48 md:h-64 overflow-hidden w-full">
-        <img 
-          src={image} 
+      <div
+        className="relative h-48 md:h-64 overflow-hidden w-full cursor-pointer"
+        onClick={() => onOpenProject?.()}
+      >
+        <img
+          src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60" />
       </div>
     )}
-    
+
     <div className="p-6 md:p-8 flex flex-col gap-6 flex-grow">
-      <div className="flex justify-between items-start">
-        <h4 
+      <div
+        className="flex justify-between items-start cursor-pointer"
+        onClick={() => onOpenProject?.()}
+      >
+        <h4
           className="text-xl md:text-2xl font-bold text-white transition-colors duration-300 group-hover:text-[var(--hover-color,#00f2ff)] text-left"
           style={{ '--hover-color': titleColor || '#00f2ff' } as React.CSSProperties}
         >
           {title}
         </h4>
-        <div className="p-2 rounded-lg bg-white/5 text-gray-500 group-hover:text-cyan-400 group-hover:bg-cyan-500/10 transition-all shrink-0">
-          <ArrowUpRight className="w-5 lg:w-6 lg:h-6" />
-        </div>
+        {onOpenProject && (
+          <div className="p-2 rounded-lg bg-white/5 text-gray-500 group-hover:text-cyan-400 group-hover:bg-cyan-500/10 transition-all shrink-0">
+            <ArrowUpRight className="w-5 lg:w-6 lg:h-6" />
+          </div>
+        )}
       </div>
 
       <p className="text-gray-400 leading-relaxed font-light text-left">{description}</p>
+
+      {downloadLink && (
+        <a
+          href={downloadLink}
+          download
+          onClick={(e) => e.stopPropagation()}
+          className="inline-flex items-center gap-2 px-4 py-2 self-start rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold hover:bg-cyan-500/20 hover:text-white transition-all group/dl"
+        >
+          <Download className="w-3.5 h-3.5 group-hover/dl:-translate-y-0.5 transition-transform" />
+          {downloadLabel ?? "Download Certificate"}
+        </a>
+      )}
 
       <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-white/5">
         {tags.map(tag => {
@@ -188,7 +202,7 @@ const ProjectItem = ({ title, description, link, tags, index, titleColor, image,
         })}
       </div>
     </div>
-  </motion.button>
+  </motion.div>
 );
 
 const BlogItem = ({ title, description, link, tags, index }: { title: string, description: string, link: string, tags: string[], index: number }) => (
@@ -355,6 +369,8 @@ export const Resume = ({ onOpenProject }: { onOpenProject?: (id: string) => void
               link="#"
               image="/projects/business_sim.png"
               onOpenProject={() => onOpenProject?.('boss')}
+              downloadLink="/portfolio data/BOSS_Competition_Certificate.pdf"
+              downloadLabel="Download Certificate"
             />
             <ProjectItem
               index={3}
